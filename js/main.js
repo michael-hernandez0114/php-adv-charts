@@ -2,7 +2,21 @@ $(document).ready(function() {
 
     $.ajax({
 
+        url: 'server.php',
+        method: 'GET',
+        success: function(data) {
 
+            var data_lineChart = data;
+
+            console.log(data_lineChart);
+
+            createLineChart(data);
+
+
+        },
+        error: function(error) {
+
+        }
 
 
     });
@@ -10,22 +24,24 @@ $(document).ready(function() {
 
 
 
-    function createLineChart(chartData) {
+    function createLineChart(lineChartData) {
+
+        var mesi = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         var ctx = $('#linechart');
         var chart = new Chart(ctx, {
 
             type: 'line',
             data: {
-                labels: chartData.labels,
+                labels: mesi,
                 datasets: [{
-                    backgroundColor: 'blue',
+                    backgroundColor: 'green',
                     pointStyle: 'square',
-                    borderColor: 'blue',
-                    fill: false,
-                    lineTension: 0,
+                    borderColor: 'red',
+                    fill: true,
+                    lineTension: 0.4,
                     showLine: true,
-                    label: '2017',
-                    data: chartData.allData,
+                    label: 'Vendite',
+                    data: lineChartData,
                 }],
 
 
