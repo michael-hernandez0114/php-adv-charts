@@ -9,6 +9,7 @@ $(document).ready(function() {
         success: function(data) {
 
             var graphData = data;
+            var pieData = {};
 
             //console.log(graphData);
 
@@ -23,7 +24,9 @@ $(document).ready(function() {
                 }
                 else if (graphData[graph].type === 'pie') {
                     // parse the label and data into two different arrays
+                    pieData = parseData(graphData[graph].data);
                     // call function to create pie chart
+                    createTorta(pieData);
                 }
             }
 
@@ -35,6 +38,27 @@ $(document).ready(function() {
 
 
     });
+
+
+    function parseData (data) {
+        var tempObj = {};
+
+        var labels = [];
+        var dataToDisplay = [];
+
+        for (var key in data) {
+            // console.log(key);
+            labels.push(key);
+            dataToDisplay.push(data[key]);
+        }
+
+        tempObj.labels = labels;
+        tempObj.allData = dataToDisplay;
+
+        console.log(tempObj);
+
+        return tempObj;
+    }
 
 
 

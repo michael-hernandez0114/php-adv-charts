@@ -13,8 +13,10 @@
 
         <div id="chart-container" class="">
             <div class="container chart">
-                <h2>Fatturato Mensile</h2>
                 <canvas id="linechart"></canvas>
+            </div>
+            <div class="container chart">
+                <canvas id="torta"></canvas>
             </div>
         </div>
 
