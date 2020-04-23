@@ -1,16 +1,31 @@
 $(document).ready(function() {
 
+    //console.log('Inside JS');
+
     $.ajax({
 
         url: 'server.php',
         method: 'GET',
         success: function(data) {
 
-            var data_lineChart = data;
+            var graphData = data;
 
-            console.log(data_lineChart);
+            //console.log(graphData);
 
-            createLineChart(data);
+
+            for (var graph in graphData) {
+                //console.log(graphData[graph]);
+                console.log(graphData[graph].type);
+                console.log(graphData[graph].data);
+
+                if (graphData[graph].type === 'line') {
+                    createLineChart(graphData[graph].data);
+                }
+                else if (graphData[graph].type === 'pie') {
+                    // parse the label and data into two different arrays
+                    // call function to create pie chart
+                }
+            }
 
 
         },
@@ -49,6 +64,25 @@ $(document).ready(function() {
 
         });
 
+    }
+
+    function createTorta(tortaData) {
+        var ctx = $('#torta');
+        var chart = new Chart(ctx, {
+
+            type: 'pie',
+            data: {
+                labels: tortaData.labels,
+                datasets: [{
+                    backgroundColor: ['blue','green','red','yellow'],
+                    borderColor: 'none',
+                    borderWidth: 0,
+                    data: tortaData.allData,
+                }],
+
+
+            }
+        });
     }
 
 

@@ -19,13 +19,13 @@
             ]
         ]
     ];
-
+/*
     foreach ($graphs as $key => $graph) {
         echo 'This is the type of graph: ' .$graph[type] . '<br><br>';
          var_dump($graph[data]);
          echo '<br><br>';
 
     }
-
+*/
 
 ?>
