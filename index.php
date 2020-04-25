@@ -18,9 +18,12 @@
             <div class="container chart">
                 <canvas id="torta"></canvas>
             </div>
+            <div class="container chart">
+                <canvas id="team-linechart"></canvas>
+            </div>
         </div>
 
-        <script src='js/main.js'>
+        <script src='step3/main.js'>
 
         </script>
 

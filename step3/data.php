@@ -71,7 +71,7 @@
 
              foreach ($graph[data] as $key => $value) {
                  $team_efficiency['team'][] = $key;
-                 $team_efficiency['efficiency'][] = $value;
+                 $team_efficiency['data'][] = $value;
 
              }
              $team_efficiency['access'] = $graph[access];
@@ -82,13 +82,13 @@
 
     }
 
-    var_dump($fatturato) . '<br><br>';
-    echo '<br><br>';
-    var_dump($fatturato_by_agent) . '<br><br>';
-    echo '<br><br>';
-    var_dump($team_efficiency) . '<br><br>';
-    echo '<br><br>';
-    echo __DIR__;
+    // var_dump($fatturato) . '<br><br>';
+    // echo '<br><br>';
+    // var_dump($fatturato_by_agent) . '<br><br>';
+    // echo '<br><br>';
+    // var_dump($team_efficiency) . '<br><br>';
+    // echo '<br><br>';
+    // echo __DIR__;
 
 
 ?>
