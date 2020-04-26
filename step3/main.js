@@ -68,7 +68,8 @@ $(document).ready(function() {
         //console.log(inputData.length);
 
         var datasets = [];
-        var bgColors = ['green','red','blue'];
+        var borderColors = ['green','red','blue'];
+        var bgColors = ['rgba(0,0,0,0.1)', 'rgba(0,0,0,0.2)', 'rgba(0,0,0,0.3)'];
 
 
         //console.log(inputData['data'].length);
@@ -83,8 +84,8 @@ $(document).ready(function() {
                     var dataSetObj = {
                         backgroundColor: bgColors[i],
                         pointStyle: 'square',
-                        borderColor: bgColors[i],
-                        fill: false,
+                        borderColor: borderColors[i],
+                        fill: true,
                         lineTension: 0.4,
                         showLine: true,
                     };
@@ -102,9 +103,9 @@ $(document).ready(function() {
             else {
                 console.log('No internal arrays');
                 var dataSetObj = {
-                    backgroundColor: bgColors[0],
+                    backgroundColor: borderColors[0],
                     pointStyle: 'square',
-                    borderColor: bgColors[0],
+                    borderColor: borderColors[0],
                     fill: true,
                     lineTension: 0.4,
                     showLine: true,
