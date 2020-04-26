@@ -76,11 +76,11 @@
              }
              $team_efficiency['access'] = $graph[access];
          }
-
-
-
-
     }
+
+    $accessHierarchy['level'][] = $fatturato['access'];
+    $accessHierarchy['level'][] = $fatturato_by_agent['access'];
+    $accessHierarchy['level'][] = $team_efficiency['access'];
 
     // var_dump($fatturato) . '<br><br>';
     // echo '<br><br>';
@@ -89,6 +89,8 @@
     // var_dump($team_efficiency) . '<br><br>';
     // echo '<br><br>';
     // echo __DIR__;
+
+    //var_dump($accessHierarchy);
 
 
 ?>

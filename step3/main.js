@@ -2,66 +2,73 @@ $(document).ready(function() {
 
     //console.log('Inside JS');
 
+    if(document.getElementById('linechart')) {
+        $.ajax({
 
-    $.ajax({
+            url: 'step3/server_fatturato.php',
+            method: 'GET',
+            success: function(data) {
 
-        url: 'step3/server_fatturato.php',
-        method: 'GET',
-        success: function(data) {
+                var graphData = data;
 
-            var graphData = data;
+                //console.log(graphData);
 
-            //console.log(graphData);
+                var lineObj = buildDataSetObj(graphData);
+                createLineChart(graphData, lineObj, $('#linechart'));
+            },
+            error: function(error) {
 
-            var lineObj = buildDataSetObj(graphData);
-            createLineChart(graphData, lineObj, $('#linechart'));
-        },
-        error: function(error) {
+            }
 
-        }
+        });
+    }
 
-    });
+    if (document.getElementById('torta')) {
 
-    $.ajax({
+        $.ajax({
 
-        url: 'step3/server_fattAgent.php',
-        method: 'GET',
-        success: function(data) {
+            url: 'step3/server_fattAgent.php',
+            method: 'GET',
+            success: function(data) {
 
-            var graphData = data;
+                var graphData = data;
 
-            //console.log(graphData);
+                //console.log(graphData);
 
-            createTorta(graphData);
+                createTorta(graphData);
 
-        },
-        error: function(error) {
+            },
+            error: function(error) {
 
-        }
+            }
 
-    });
+        });
+    }
 
-    $.ajax({
+    if (document.getElementById('team-linechart')) {
 
-        url: 'step3/server_teamEffi.php',
-        method: 'GET',
-        success: function(data) {
+        $.ajax({
 
-            var graphData = data;
+            url: 'step3/server_teamEffi.php',
+            method: 'GET',
+            success: function(data) {
 
-            //console.log(graphData);
+                var graphData = data;
 
-            var lineObj = buildDataSetObj(graphData);
+                //console.log(graphData);
 
-            createLineChart(graphData, lineObj, $('#team-linechart'));
+                var lineObj = buildDataSetObj(graphData);
 
-        },
-        error: function(error) {
-            //console.log('Error calling teamEffi');
-            //console.log(error);
-        }
+                createLineChart(graphData, lineObj, $('#team-linechart'));
 
-    });
+            },
+            error: function(error) {
+                //console.log('Error calling teamEffi');
+                //console.log(error);
+            }
+
+        });
+    }
 
     function buildDataSetObj(inputData) {
 

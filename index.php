@@ -11,17 +11,42 @@
     <body>
 
 
+                <?php $access = $_GET['level']; ?>
+
+
+
+        <h2>Your level of access is: <?php echo $access; ?> </h2>
+
+        <?php include 'step3/data.php';
+
+        ?>
+
         <div id="chart-container" class="">
-            <div class="container chart">
-                <canvas id="linechart"></canvas>
-            </div>
-            <div class="container chart">
-                <canvas id="torta"></canvas>
-            </div>
-            <div class="container chart">
-                <canvas id="team-linechart"></canvas>
-            </div>
+            <?php if ($access === $fatturato['access'] && (array_search($access, $accessHierarchy) >= 0)) { ?>
+                <div class="container chart">
+                    <canvas id="linechart"></canvas>
+                </div>
+            <?php
+
+            } ?>
+            <?php print_r(array_search($access, $accessHierarchy)); ?>
+            <?php if ($access === $fatturato_by_agent['access']) { ?>
+                <div class="container chart">
+                    <canvas id="torta"></canvas>
+                </div>
+            <?php
+                $key = array_search($access, $accessHierarchy);
+                echo $key;
+            } ?>
+            <?php if ($access === $team_efficiency['access']) { ?>
+                <div class="container chart">
+                    <canvas id="team-linechart"></canvas>
+                </div>
+            <?php
+
+            } ?>
         </div>
+
 
         <script src='step3/main.js'>
 
