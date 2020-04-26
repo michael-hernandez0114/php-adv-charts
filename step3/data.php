@@ -78,9 +78,9 @@
          }
     }
 
-    $accessHierarchy['level'][] = $fatturato['access'];
-    $accessHierarchy['level'][] = $fatturato_by_agent['access'];
-    $accessHierarchy['level'][] = $team_efficiency['access'];
+    $accessHierarchy[] = $fatturato['access'];
+    $accessHierarchy[] = $fatturato_by_agent['access'];
+    $accessHierarchy[] = $team_efficiency['access'];
 
     // var_dump($fatturato) . '<br><br>';
     // echo '<br><br>';

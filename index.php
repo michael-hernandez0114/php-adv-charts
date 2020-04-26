@@ -11,34 +11,34 @@
     <body>
 
 
-                <?php $access = $_GET['level']; ?>
+        <?php $access = $_GET['level'];
 
 
+        ?>
 
         <h2>Your level of access is: <?php echo $access; ?> </h2>
 
         <?php include 'step3/data.php';
 
+            $permission_level = array_search($access, $accessHierarchy);
+
         ?>
 
         <div id="chart-container" class="">
-            <?php if ($access === $fatturato['access'] && (array_search($access, $accessHierarchy) >= 0)) { ?>
+            <?php if ($permission_level >= 0) { ?>
                 <div class="container chart">
                     <canvas id="linechart"></canvas>
                 </div>
             <?php
 
             } ?>
-            <?php print_r(array_search($access, $accessHierarchy)); ?>
-            <?php if ($access === $fatturato_by_agent['access']) { ?>
+            <?php if ($permission_level >= 1) { ?>
                 <div class="container chart">
                     <canvas id="torta"></canvas>
                 </div>
             <?php
-                $key = array_search($access, $accessHierarchy);
-                echo $key;
             } ?>
-            <?php if ($access === $team_efficiency['access']) { ?>
+            <?php if ($permission_level == 2) { ?>
                 <div class="container chart">
                     <canvas id="team-linechart"></canvas>
                 </div>
